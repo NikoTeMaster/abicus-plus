@@ -80,7 +80,7 @@ export default function Keypad() {
 					<RawKey tint="red" label="⌫" onClick={calculator.buffer.del} />
 					{clearButton}
 					<div className="col-span-2 text-sm text-neutral-400 inline-flex items-center justify-center">
-						Abicus+ 1.0.0
+						Abicus+ {gitRef}
 					</div>
 					<RawKey tint="blue-dark" label="=" onClick={calculator.crunch} />
 				</div>
