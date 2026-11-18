@@ -131,6 +131,17 @@ class LatexParser {
 
         this.skipWhitespace();
 
+        // Check for the matching closing math delimiter.
+        if (this.inputEndDelimiter !== null) {
+            if (!this.consume(this.inputEndDelimiter)) {
+                throw new LatexParseError(
+                    `Expected closing delimiter: ${this.inputEndDelimiter}`
+                );
+            }
+
+            this.skipWhitespace();
+        }
+
         if (!this.atEnd) {
             throw new LatexParseError(
                 `Unexpected character: ${this.current}`
@@ -341,13 +352,13 @@ class LatexParser {
         }
 
         // Constants
-        if (command in CONSTANTS) {
-            return CONSTANTS[command];
+        if (Object.hasOwn(CONSTANTS, command)) {
+            return CONSTANTS[command]!;
         }
 
         // Operators
-        if (command in OPERATORS) {
-            return OPERATORS[command];
+        if (Object.hasOwn(OPERATORS, command)) {
+            return OPERATORS[command]!;
         }
 
         // Formatting commands

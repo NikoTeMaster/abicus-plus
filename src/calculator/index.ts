@@ -3,7 +3,7 @@ import { err, ok } from "neverthrow";
 
 import { processPlugins } from "./Plugins/plugin-manager";
 
-import { latexToExpression } from "./internal/latex-parser";
+//import { latexToExpression } from "./internal/latex-parser";
 
 import evaluate from "./internal/evaluator";
 import tokenise from "./internal/tokeniser";
